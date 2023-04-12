@@ -1,0 +1,174 @@
+
+
+<div
+style="
+  background-image: url(../../assets/header.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+"
+class="bg-orange-500 h-16 col-span-3">
+
+
+</div>
+<app-editpass
+[isOpen]="isopen"
+(closed)="close()"
+></app-editpass>
+
+<app-paramArro  [showModal]="showmodalparams"  (closed)="close()"></app-paramArro>
+<aside id="sidebar-multi-level-sidebar" class="fixed mt-0 left-0 w-64 h-full transition-transform    -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+ <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800"style="
+     width: 99%;
+     background-color: #a10000;
+   " class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+    <ul class="space-y-2 font-medium">
+     <a type="button" 
+     routerLink="/dashboard"
+       class="flex items-center p-2 text-base  font-normal text-gray-900 rounded-lg dark:text-red-100 hover:bg-red-200 dark:hover:bg-red-700"
+     >
+       <svg
+         fill="none"
+         stroke="currentColor"
+         aria-hidden="true"
+         class="w-6 h-6 text-white transition duration-75 dark:text-white"
+         viewBox="0 0 24 24"
+         xmlns="http://www.w3.org/2000/svg"
+       >
+         <path
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0112 18.375m9.75-12.75c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125m19.5 0v1.5c0 .621-.504 1.125-1.125 1.125M2.25 5.625v1.5c0 .621.504 1.125 1.125 1.125m0 0h17.25m-17.25 0h7.5c.621 0 1.125.504 1.125 1.125M3.375 8.25c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m17.25-3.75h-7.5c-.621 0-1.125.504-1.125 1.125m8.625-1.125c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M12 10.875v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125M13.125 12h7.5m-7.5 0c-.621 0-1.125.504-1.125 1.125M20.625 12c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h7.5M12 14.625v-1.5m0 1.5c0 .621-.504 1.125-1.125 1.125M12 14.625c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m0 1.5v-1.5m0 0c0-.621.504-1.125 1.125-1.125m0 0h7.5"
+         ></path>
+       </svg>
+       <span class="ml-3  text-white">Tableau de Bord</span>
+     </a>
+     <li>
+       <a
+         class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-red-100 hover:bg-red-200 dark:hover:bg-red-700"
+       >
+         <svg
+           aria-hidden="true"
+           class="flex-shrink-0 w-6 h-6 text-white transition duration-75 dark:text-red-400 group-hover:text-red-900 dark:group-hover:text-white"
+           fill="currentColor"
+           viewBox="0 0 20 20"
+           xmlns="http://www.w3.org/2000/svg"
+         >
+           <path
+             d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"
+           ></path>
+           <path
+             d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"
+           ></path>
+         </svg>
+
+         <div class="dropdown inline-flex items-center w-40">
+           <span class="ml-3 text-white">Paramètre</span>
+           <svg
+             class="fill-current h-4 w-4 text-white"
+             xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 20 20"
+           >
+             <path
+               d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+             />
+           </svg>
+           <ul
+             class="dropdown-menu absolute hidden rounded-t text-gray-700 pt-6 ml-16 mt-24 w-48"
+           >
+             <li class="w-48">
+               <button
+                 class=" bg-gray-200 w-48 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                 type="button "(click)="toggleModalParams()"
+               >
+                 paramétre arrosage
+               </button>
+             </li>
+
+             <li class="w-48">
+               <button class=" bg-gray-200 w-48 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap " 
+               type="button" (click)="editpassword()">
+                modification mdp
+               </button>
+
+             </li>
+           </ul>
+         </div>
+       </a>
+     </li>
+     <li>
+       <a
+         routerLink="/historique"
+         class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-red-100 hover:bg-red-200 dark:hover:bg-red-700"
+       >
+         <svg
+           aria-hidden="true"
+           class="flex-shrink-0 w-6 h-6 text-white transition duration-75 dark:text-red-800 group-hover:text-red-900 dark:group-hover:text-white"
+           fill="currentColor"
+           viewBox="0 0 20 20"
+           xmlns="http://www.w3.org/2000/svg"
+         >
+           <path
+             fill-rule="evenodd"
+             d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+             clip-rule="evenodd"
+           ></path>
+         </svg>
+         <span class="text-white ml-3 whitespace-nowrap">Historique</span>
+       </a>
+     </li>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <li>
+         <div class=" p-3 mt-10 pb-8 -mb-12">
+           <img src="../../assets/Group_84.png" height="5450px"/>
+         </div>
+       </li>
+       
+       
+       <ul class="pt-10 mt-10">
+         <li>
+           <a
+             routerLink="login"
+             style="height: 59px;"
+             class="flex items-start mt-64 pt-6 pb-8 text-base w-full font-normal "
+           >
+             <svg
+               aria-hidden="true"
+               fill="none"
+               class="w-6 h-6  text-white transition duration-75 dark:text-white group-hover:text-white dark:group-hover:text-white"
+               stroke="currentColor"
+               stroke-width="1.5"
+               viewBox="0 0 24 24"
+               xmlns="http://www.w3.org/2000/svg"
+               aria-hidden="true"
+             >
+               <path
+                 stroke-linecap="round"
+                 stroke-linejoin="round"
+                 d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+               ></path>
+             </svg>
+             <span class="ml-3 text-white justify-center">Se Deconnecter</span>
+           </a>
+         </li>
+       </ul>
+       
+    </ul>
+ </div>
+
+ 
+</aside>
+
+
+ 
+
+
+
+
+
+
+
+
+ 
+
+
+

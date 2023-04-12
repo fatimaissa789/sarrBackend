@@ -1,0 +1,102 @@
+
+<div id="login-container" class="flex container mx-auto items-center justifier-center ">
+  <div class="w-900 max-w-xs">
+    
+    <form id="login" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" [formGroup]="registerForm"
+    (ngSubmit)="onSubmit()">
+  
+           <!-- <ng-container *ngIf="this.errMsg">
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+             
+              <span class="block sm:inline">{{errMsg}}</span>
+
+            </div>
+           </ng-container> -->
+           
+      <div class=" mt-6 relative h-32 w-56 " id="champ">
+      <div class=" absolute inset-x-0 top-0 h-16 right-3/4">
+        <label class="block  text-slate-900  mb-2 text-lg" for="username">
+          Email </label>
+        <input
+          class=" appearance-none w-96 h-14 border py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="email" type="email" placeholder="Email" formControlName="email"
+          [ngClass]="{'is-invalid':submitted && registerForm.controls['email'].errors}" formControlName="email">
+
+          <div *ngIf="submitted && registerForm.controls['email'].errors" >
+            <p *ngIf="submitted && registerForm.controls['email'].errors['required']"
+            class="text-red-500 mb-2 text-xs font-sans">
+        Champ Vide        </p>
+          <p *ngIf="submitted && registerForm.controls['email'].errors['email']"
+            class="text-red-500 text-xs font-sans">
+            Email Invalid
+          </p>
+
+          </div>
+
+      </div>
+      <div class="pt-20">
+        <label class="block text-slate-900 text-lg mb-2 mt-5" for="password">
+          Mot de passe
+        </label>
+        <input
+        class=" appearance-none border w-96 h-14  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="password" type="password" placeholder="Mot de passe" formControlName="password" minlength="5"
+  formControlName="password">
+  <div *ngIf="submitted && registerForm.controls['password'].errors" >
+    <p *ngIf="submitted && registerForm.controls['password'].errors['required']"
+    class="text-red-500 mb-2 text-xs font-sans">
+Champ Vide        </p>
+  <p *ngIf="submitted && registerForm.controls['password'].errors['minlength']"
+    class="text-red-500 text-xs font-sans">
+    Minimum 8 caractères
+  </p>
+
+  </div>
+
+
+      </div>
+
+
+      </div>
+      <br>
+
+      <br>
+      <div class="flex items-center pt-52 justify-center pr-57 ">
+      
+        <button  
+          routerLink="/dashboard"
+          class="bg-stone-100 border-2 border-gray-900 text-black inline-block font-bold py-2 px-4  rounded focus:outline-none focus:shadow-outline"
+          type="submit">
+          Se Connecter </button>
+
+
+      </div>
+      <hr style="
+        margin: 30px;
+        border: 1px solid #000000;
+        max-width: 840px;
+        top: 650px;
+        justify-content: center;
+        display: flex;
+       margin:15px ;
+
+
+
+    ">
+    <div >
+      <p
+      class="text-slate-900 text-center ml-11 text-2xl font-sans">
+     Vous pouvez vous connecter par RFID
+    </p>
+    <a href=""  type="submit"><img src="../../assets/rfid.jpg" alt="RFID"  class="h-60  mt-12 ml-80"></a>
+
+    </div>
+
+
+    </form>
+
+  </div>
+
+
+</div>
+

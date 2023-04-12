@@ -1,0 +1,207 @@
+
+<div *ngIf="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+  <div class="relative w-auto my-6 mx-auto max-w-6xl">
+    <!--content-->
+    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+      <!--header-->
+      <div class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+        <h3 class="text-3xl font-semibold">
+          Gestion Arrosage
+        </h3>
+       
+      </div>
+      <!--body-->
+      <div class="relative p-6 bg-[#FBF1F1] flex-auto">
+        <p class="my-4 text-slate-500 leading-relaxed ading-relaxed">
+          Durant les 20 premiers jour les fraises seront 
+          arrosées si l’humidite  est inferieure a 30% à un volume
+          de 1200 m3.  Au de la de ces 20 jours ;
+          l’arrosage se fera à partir de 40% selon l’humidite du sol 
+          pour un volume de 800m3
+        </p>
+      </div>
+      
+        <div class="flex bg-[#FBF1F1] items-center justify-center bg-200 h-full">
+          <div class="antialiased  sans-serif">
+            <div>
+              <div class="container grid grid-cols-2 gap-12  mx-auto px-4 py-2 md:py-10">
+                <div class="mb-5 w-64">
+                  <label for="datepicker" class="font-bold mb-1 text-gray-700 block">Date de debut</label>
+                  <div class="relative">
+                    <input type="hidden" name="date" x-ref="date" />
+                    <input
+                   
+                      type="text"
+                      readonly
+                      [(ngModel)]="datepickerValue"
+                      (change)="SendDataonChange($event)" 
+                      (click)="showDatepicker = !showDatepicker"
+                      (keydown.escape)="showDatepicker = false"
+                      class="
+                        w-full
+                        pl-4
+                        pr-10
+                        py-3
+                        leading-none
+                        rounded-lg
+                        shadow-sm
+                        focus:outline-none focus:shadow-outline
+                        text-gray-600
+                        font-medium
+                      "
+                      placeholder="Select date"
+                    />
+        
+                    <div class="absolute top-0 right-0 px-3 py-2">
+                      <svg class="h-6 w-6 text-gray-400"  [(ngModel)]="datepickerValue"
+                      (change)="SendDataonChange($event)" 
+                      (click)="showDatepicker = !showDatepicker"
+                      (keydown.escape)="showDatepicker = false" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </div>
+        
+                    <!-- <div {{no_of_days.length"></div>
+                                    <div {{32 - new Date(year, month, 32).getDate()"></div>
+                                    <div {{new Date(year, month).getDay()"></div> -->
+                    <div
+                      class="bg-white mt-12 rounded-lg shadow p-4 absolute top-0 left-0"
+                      style="width: 17rem"
+                      [hidden]="!showDatepicker"
+                      (keydown.away)="showDatepicker = false"
+                    >
+                      <div class="flex justify-between items-center mb-2">
+                        <div>
+                          <span class="text-lg font-bold text-gray-800">{{ MONTH_NAMES[month] }}</span>
+                          <span class="ml-1 text-lg text-gray-600 font-normal">{{ year }}</span>
+                        </div>
+                        <div>
+                          <button
+                            type="button"
+                            class="
+                              transition
+                              ease-in-out
+                              duration-100
+                              inline-flex
+                              cursor-pointer
+                              hover:bg-gray-200
+                              p-1
+                              rounded-full"
+                              
+                            [ngClass]="{ 'cursor-not-allowed opacity-25': month === 0 }"
+                            [disabled]="month === 0 ? true : false"
+                            (click)="month = month - 1"
+                            (click)="getNoOfDays()"
+                          >
+                            <svg
+                              class="h-6 w-6 text-gray-500 inline-flex"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                          </button>
+                          <button
+                            type="button"
+                            class="
+                              transition
+                              ease-in-out
+                              duration-100
+                              inline-flex
+                              cursor-pointer
+                              hover:bg-gray-200
+                              p-1
+                              rounded-full
+                            "
+                            [ngClass]="{ 'cursor-not-allowed opacity-25': month === 11 }"
+                            [disabled]="month === 11 ? true : false"
+                            (click)="month = month + 1"
+                            (click)="getNoOfDays()"
+                          >
+                            <svg
+                              class="h-6 w-6 text-gray-500 inline-flex"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                            >
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+        
+                      <div class="flex flex-wrap mb-3 -mx-1">
+                        <ng-container *ngFor="let day of DAYS; let index = index">
+                          <div style="width: 14.26%" class="px-1">
+                            <div class="text-gray-800 font-medium text-center text-xs">{{ day  }}</div>
+                          </div>
+                        </ng-container>
+                      </div>
+        
+                      <div class="flex flex-wrap -mx-1">
+                        <ng-container *ngFor="let blankday of blankdays">
+                          <div style="width: 14.28%" class="text-center border-none p-1 border-transparent text-sm"></div>
+                        </ng-container>
+                        <ng-container *ngFor="let date of no_of_days; let dateIndex = index; trackBy: trackByIdentity">
+                          <div style="width: 14.28%" class="px-1 mb-1">
+                            <div
+                              (click)="getDateValue(date)"
+                              class="
+                                cursor-pointer
+                                text-center text-sm
+                                rounded-full
+                                leading-loose
+                                transition
+                                ease-in-out
+                                duration-100
+                              "
+                              [ngClass]="{
+                                'bg-blue-500 text-white': isToday(date) === true,
+                                'text-gray-700 hover:bg-blue-200': isToday(date) === false
+                              }"
+                            >
+                              {{ date }}
+                            </div>
+                          </div>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-5 w-64">
+                  <label for="datepicker" class="font-bold mb-1 text-gray-700 block">Date de Fin</label>
+                  <input  id="" [(ngModel)]="periodearroseValue"  
+                  
+                  (keydown.escape)="showDatepicker = false"
+                   [disabled]="true" class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50  focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+              </div>
+      
+      <!--footer-->
+      <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+        <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="close()">
+          Retour
+        </button>
+        
+        <button type="submit" (click)="onSubmit()" class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" >
+          Enregistrer
+        </button>
+        
+    </div>
+  
+    
+    </div>
+  </div>
+</div>
+<div *ngIf="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+

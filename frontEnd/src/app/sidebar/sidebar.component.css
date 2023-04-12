@@ -1,0 +1,10 @@
+.dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+    #icone{
+      display: flex;
+      align-items: center;
+      justify-items: flex-start;
+      
+    }

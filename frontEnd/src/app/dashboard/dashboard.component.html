@@ -1,0 +1,137 @@
+
+<main>
+
+    <div id="main" class="main-content float-right flex-row w-full bg-white-100 mt-12 md:mt-2 pb-24 md:pb-5">
+      <div class=" ">
+        <div class="w-full p-2 bg-[#B4585C] ">
+          <!--information en temps reel-->
+          <p class="font-bold uppercase text-center text-white">information en temps réel</p>
+          <div class="grid grid-cols-4  h-64  bg-[#B4585C] from-pink-200 to-pink-100 rounded-lg p-5">
+            <div class="flex flex-row items-center">
+              <div class="flex-1 text-top md:text-center">
+                <h2 class="font-bold uppercase text-white">Température</h2>
+                <p class="font-bold text-3xl  text-white"> {{temperature}} °</p>
+              </div>
+              <span class="text-pink-500"><img src="/assets/température.png" alt=""></span>
+            </div>
+            <div class="flex flex-row items-center">
+              <div class="flex-1 text-top md:text-center">
+                <h2 class="font-bold uppercase text-white">Humidité</h2>
+                <p class="font-bold text-3xl  text-white"><span>{{humidity}} %</span></p>
+  
+              </div>
+              <span class="text-pink-500"><img src="/assets/humidité.png" alt="">
+              </span>
+            </div>
+            <div class=" w-full  p-2 flex flex-row items-center">
+              <div class="flex-1 text-top md:text-center">
+                <h2 class="font-bold uppercase text-white">Luminosité</h2>
+                <p class="font-bold text-3xl  text-white">{{luminosite}} Lux</p>
+              </div>
+              <span class="text-pink-500"><img src="/assets/lumière.png" alt=""></span>
+            </div>
+            <div class="w-full  p-2 flex flex-row items-center">
+              <div class="flex-1 text-top md:text-center">
+                <h2 class="font-bold uppercase text-white">Humidite du Sol</h2>
+                <p class="font-bold text-3xl text-white">{{humiditySol}} %</p>
+              </div>
+              <span class="text-pink-500"><img src="/assets/hum-sol.png" alt=""></span>
+            </div>
+  
+          </div>
+          <div class=" p-4 flex flex-row max-w-[100%] justify-between">
+            <h2 class="font-bold uppercase text-white text-2xl">Date de plantation <span class="text-black" > {{savedCount}} </span></h2>
+            
+            <h2 class="font-bold uppercase text-white ml-64 text-2xl">Nombre de jour <span class="text-black">{{daycount}}</span></h2>
+          </div>
+        </div>
+  
+      </div>
+      <div class="grid grid-cols-4  mt-10">
+        <div class="w-full  h-full p-9">
+          <!--statut des composants porte-->
+          <div class="bg-[#FBF1F1] h-96  border-transparent rounded-lg shadow-xl">
+            <div class="bg-[#FBF1F1]  uppercase   rounded-tl-lg rounded-tr-lg p-2">
+              <h2 class="font-bold uppercase text-center ">Porte</h2>
+            </div>
+            <div class="p-5 flex items-center justify-center">
+              <img src="{{imageSrc }}" class="object-fill h-48 w-72 ...">
+            </div>
+            <div class="bg-[#FBF1F1] flex items-center justify-center  rounded-tl-lg rounded-tr-lg p-2">
+  
+              <button (click)="onClick()" class="flex items-center relative w-max cursor-pointer select-none">
+                <img src="{{imageSrcb }}" class="object-fill h-10 w-auto ...">
+              </button>
+             
+            
+            </div>
+  
+          </div>
+        </div>
+  
+        <div class="w-full h-full p-9">
+          <!--statut des composants toit-->
+          <div class="bg-[#FBF1F1] h-96  border-transparent rounded-lg shadow-xl">
+            <div class="bg-[#FBF1F1]  uppercase   rounded-tl-lg rounded-tr-lg p-2">
+              <h2 class="font-bold uppercase text-center ">Toit</h2>
+            </div>
+            <div class="p-5 flex items-center justify-center">
+              <img src="{{imageSrc2}}" class="object-fill h-48 w-72 ...">
+            </div>
+            <div class="bg-[#FBF1F1] flex items-center justify-center  rounded-tl-lg rounded-tr-lg p-2">
+              <button (click)="onClickt()" class="flex items-center relative w-max cursor-pointer select-none">
+                <img src="{{imageSrcb2}}" class="object-fill h-10 w-auto ...">
+              </button>
+  
+            </div>
+  
+  
+          </div>
+  
+        </div>
+        <div class="w-full h-full p-9">
+          <!--statut des composants pompe-->
+          <div class="bg-[#FBF1F1]  h-96  border-transparent rounded-lg shadow-xl">
+            <div class="bg-[#FBF1F1]  uppercase  rounded-tl-lg rounded-tr-lg p-2">
+              <h2 class="font-bold uppercase  text-center ">Pompe</h2>
+            </div>
+            <div class="p-5 flex items-center justify-center ">
+  
+              <img src="{{imageSrc3}}" class="object-fill h-48 w-72 ...">
+  
+            </div>
+            <div class="bg-[#FBF1F1] flex items-center justify-center rounded-tl-lg rounded-tr-lg p-2">
+              <button (click)="onClickp()" class="flex items-center relative w-max cursor-pointer select-none">
+                <img src="{{imageSrcb3}}" class="object-fill h-10 w-auto ...">
+              </button>
+  
+  
+            </div>
+  
+          </div>
+        </div>
+        <div class="w-full h-full p-9">
+          <!--statut des composants extracteur-->
+          <div class="bg-[#FBF1F1] h-96 border-transparent rounded-lg shadow-xl">
+            <div class="bg-[#FBF1F1]  uppercase text   rounded-tl-lg rounded-tr-lg p-2">
+              <h2 class="font-bold uppercase text-center	">Extracteur</h2>
+            </div>
+            <div class="p-5 flex items-center justify-center">
+              <img src="{{imageSrc4}}" class="object-fill h-48 w-48 ...">
+            </div>
+            <div class="bg-[#FBF1F1] flex items-center justify-center rounded-tl-lg rounded-tr-lg p-2">
+  
+              <!-- component -->
+              <button (click)="onClicke()" class="flex items-center relative w-max cursor-pointer select-none">
+                <img src="{{imageSrcb4}}" class="object-fill h-10 w-auto ...">
+              </button>
+  
+  
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  

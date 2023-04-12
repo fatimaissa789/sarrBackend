@@ -1,0 +1,126 @@
+<div *ngIf="isOpen" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+  <div class="relative w-auto my-6 mx-auto max-w-6xl">
+
+    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+
+      <div class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+        <h3 class="text-3xl font-semibold" style="text-align: center; margin-left: 2%;">
+          Modification mot de passe
+        </h3>
+
+      </div>
+
+      <div class="relative p-6 flex-auto">
+       <div class="relative w-full h-full max-w-md md:h-auto">
+        <!-- Modal content -->
+        <div class="modal fade mr-1" id="modifpwd" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true"
+        style="margin-left: 15px;">
+          <div class="modal-dialog " role="document">
+            <div class="modal-content">
+              <form [formGroup]="updateForm" (ngSubmit)="updatepass()" id="leform" class="row g-3 my-5"
+              enctype="multipart/form-data" style="display: flex; flex-direction: column;">
+              <div class="profil justify-center">
+              </div>
+              <ng-container *ngIf="this.errMsg">
+              </ng-container>
+<!--                  <div class=" col-md-6 mt-6">
+                    <label for="ancienpassword">Ancien mot de passe</label>
+                    <input [ngClass]="{'is-invalid':submitted && updateForm.controls['ancienpassword'].errors}"
+                        formControlName="ancienpassword" type="password" class="form-control" id="pass1" style="border: 1px solid black;">
+                    <div *ngIf="submitted && updateForm.controls['ancienpassword'].errors" class="text-danger">
+                        <div *ngIf="submitted && updateForm.controls['ancienpassword'].errors['required']"text-red-500 text-xs font-sans style="color: red;">
+                            Le mot de passe est necessaire!
+                        </div>
+                        <div *ngIf="submitted && updateForm.controls['ancienpassword'].errors['minlength']" style="color: red;">
+                            Saisi au moins 8 caracteres !
+                        </div>
+
+                    </div>
+                 </div> -->
+
+<!--                 <div class=" col-md-6 mt-6" >
+                    <label for="newpassword">Nouveau mot de passe </label>
+                    <input [ngClass]="{'is-invalid':submitted && updateForm.controls['newpassword'].errors}"
+                        formControlName="newpassword" type="password" class="form-control" id="pass1" style="border: 1px solid black;">
+                    <div *ngIf="submitted && updateForm.controls['password'].errors" class="text-danger">
+                        <div *ngIf="submitted && updateForm.controls['password'].errors['required']" style="color: red;">
+                            Le mot de passe est necessaire!
+                        </div>
+                        <div *ngIf="submitted && updateForm.controls['newpassword'].errors['minlength']" style="color: red;">
+                            Saisi au moins 8 caracteres
+                        </div>
+                    </div>
+                </div> -->
+                
+   <div class="col-md-6 mt-6 " > 
+                  <label for="ancienpassword">Ancien mot de passe </label>
+                  <input [ngClass]="{'is-invalid':submitted && updateForm.controls['ancienpassword'].errors} " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      formControlName="ancienpassword" type="password" autocomplete="on" id="pass1">
+                  <div *ngIf="submitted && updateForm.controls['ancienpassword'].errors" class="text-danger">
+                      <div *ngIf="submitted && updateForm.controls['ancienpassword'].errors['required']" style="color: red;">
+                        Le mot de passe est necessaire!
+                      </div>
+                      <div *ngIf="submitted && updateForm.controls['ancienpassword'].errors['mustMatch']" style="color: red;">
+                        Saisir au moins 8 caracteres !
+                      </div>
+                  </div>
+              </div>
+
+             
+             
+                <div class="col-md-6 mt-6 " >
+                  <label for="newpassword">Nouveau mot de passe  </label>
+                  <input [ngClass]="{'is-invalid':submitted && updateForm.controls['newpassword'].errors} " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      formControlName="newpassword"type="password" autocomplete="on" id="pass1">
+                  <div *ngIf="submitted && updateForm.controls['newpassword'].errors" class="text-danger">
+                      <div *ngIf="submitted && updateForm.controls['newpassword'].errors['required']" style="color: red;">
+                        Le mot de passe est necessaire!
+                      </div>
+                      <div *ngIf="submitted && updateForm.controls['newpassword'].errors['mustMatch']" style="color: red;">
+                        Saisir au moins 8 caracteres !
+                      </div>
+                  </div>
+              </div>
+
+                <div class="col-md-6 mt-6 " >
+                    <label for="passwordConfirm">Confirmation mot de passe </label>
+                    <input [ngClass]="{'is-invalid':submitted && updateForm.controls['passwordConfirm'].errors} " class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        formControlName="passwordConfirm" type="password" autocomplete="on" id="pass2">
+                    <div *ngIf="submitted && updateForm.controls['passwordConfirm'].errors" class="text-danger">
+                        <div *ngIf="submitted && updateForm.controls['passwordConfirm'].errors['required']" style="color: red;">
+                            Veillez confirmer le mot de passe
+                        </div>
+                        <div *ngIf="submitted && updateForm.controls['passwordConfirm'].errors['mustMatch']" style="color: red;">
+                            Les mots de passe ne correspondent pas
+                        </div>
+                    </div>
+                </div>
+              <div class="form-group" id="boutFormModifPwd" style="margin-top: 12%;">
+
+                <div class="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b m-16">
+                  <button type="submit" class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" >
+                    Modifié</button>
+                  <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="close()">
+                    Fermer
+                  </button>
+
+                </div>
+            </div>
+
+          </form>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        </div>
+    </div>
+      </div>
+      <!--footer-->
+
+    </div>
+  </div>
+</div>
+<div *ngIf="isOpen" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+

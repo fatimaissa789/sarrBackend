@@ -1,0 +1,28 @@
+#login-container {
+    min-width: 100vw;
+    min-height: 100vh;
+    color: white;
+    position: relative;
+    background-image: url("../../assets/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  #login {
+    position: absolute;
+    width: 940px;
+    height: 800px;
+    left: 481px;
+    top: 35px;
+  
+    background: rgba(217, 217, 217, 0.66);
+  }
+  #champ {
+    position: absolute;
+    width: 672px;
+    height: 170px;
+    left: 270px;
+    top: 53px;
+  }
+  
+  
